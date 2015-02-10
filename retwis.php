@@ -2,6 +2,9 @@
 require 'Predis/Autoloader.php';
 Predis\Autoloader::register();
 
+$redisHost = getenv('REDIS_HOST');
+$redisKey = getenv('REDIS_KEY');
+
 function getrand() {
     $fd = fopen("/dev/urandom","r");
     $data = fread($fd,16);
@@ -39,7 +42,12 @@ function redisLink() {
     static $r = false;
 
     if ($r) return $r;
-    $r = new Predis\Client();
+    if($redisHost && $redisKey) { // Host and Key loaded from Environment Variable
+        $r = new Predis\Client($redisHost);
+        $r->auth($redisKey);
+    } else {
+        $r = new Predis\Client();
+    }
     return $r;
 }
 
