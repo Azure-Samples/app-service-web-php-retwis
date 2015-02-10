@@ -6,7 +6,7 @@ $redisHost = getenv('REDIS_HOST');
 $redisKey = getenv('REDIS_KEY');
 
 function getrand() {
-    $fd = fopen("/dev/urandom","r");
+    $fd = mcrypt_create_iv();
     $data = fread($fd,16);
     fclose($fd);
     return md5($data);
