@@ -6,9 +6,9 @@ $redisHost = getenv('REDIS_HOST');
 $redisKey = getenv('REDIS_KEY');
 
 function getrand() {
-    $fd = mcrypt_create_iv();
-    $data = fread($fd,16);
-    fclose($fd);
+    $size = mcrypt_get_iv_size(MCRYPT_CAST_256, MCRYPT_MODE_CFB);
+    $data = mcrypt_create_iv($size, MCRYPT_DEV_URANDOM);
+    $data = str_pad($data, 16);
     return md5($data);
 }
 
