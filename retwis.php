@@ -39,6 +39,7 @@ function loadUserInfo($userid) {
 }
 
 function redisLink() {
+    global $redisHost, $redisKey;
     static $r = false;
 
     if ($r) return $r;
