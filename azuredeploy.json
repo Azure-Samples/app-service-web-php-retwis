@@ -8,10 +8,10 @@
         "hostingPlanName": {
             "type": "string"
         },
-        "location": {
+        "siteLocation": {
             "type": "string"
         },
-        "websiteSKU": {
+        "sku": {
             "type": "string",
             "allowedValues": [
                 "Free",
