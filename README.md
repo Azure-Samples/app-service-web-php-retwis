@@ -1,5 +1,5 @@
 ---
-services: app-service\web, redis
+services: app-service\web, redis-cache
 platforms: php
 author: syntaxc4
 ---
