@@ -4,7 +4,7 @@ platforms: php
 author: syntaxc4
 ---
 
-# Retwis
+# Retwis - Twitter clone written in PHP with Redis
 
 This sample demonstrates a simple procedural PHP application which mimics the functionality of Twitter with a Redis Cache backend. To read more about the original version of this sample open the [Retwis README](retwis-readme.md) file.
 
